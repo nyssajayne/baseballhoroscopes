@@ -1,0 +1,33 @@
+# Byte-compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environments
+env/
+venv/
+.env/
+
+# Environment variables
+.env
+
+# Dependency lock files
+Pipfile.lock
+poetry.lock
+
+# IDE/Editor settings
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Test artifacts
+.coverage
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
