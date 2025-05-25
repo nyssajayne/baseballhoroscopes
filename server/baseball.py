@@ -154,9 +154,10 @@ def lookup_a_guy(a_guy):
     todays_date = datetime.now(timezone.utc)
     zulu_time = todays_date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 
-    the_guys = [{
+    the_guys = {
         'current_position': astro.sun_moon_by_zulu(zulu_time),
-    }]
+        'players': []
+    }
 
     pprint.pprint(the_guys)
     
@@ -166,6 +167,7 @@ def lookup_a_guy(a_guy):
         player_stats = stats['people'][0]['stats']
 
         the_guy = {
+            'player_name': stats['people'][0]['firstLastName'],
             'debut_position': astro.sun_moon_by_date(stats['people'][0]['mlbDebutDate']),
             'birthday_position': astro.sun_moon_by_date(stats['people'][0]['birthDate'])
         };
@@ -179,7 +181,7 @@ def lookup_a_guy(a_guy):
             if(display_name == 'hitting'):
                 the_guy['hitting'] = calc_hitting(splits)
 
-        the_guys.append({stats['people'][0]['firstLastName']: the_guy})
+        the_guys['players'].append(the_guy)
 
     return the_guys
 

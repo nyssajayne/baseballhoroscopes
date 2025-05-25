@@ -1,4 +1,5 @@
 from flask import Flask
+from markupsafe import escape
 from flask_cors import CORS
 import baseball
 
@@ -11,7 +12,7 @@ def hello_world():
 
 @app.route("/<player>")
 def lookup(player):
-    return baseball.lookup_a_guy(player)
+    return baseball.lookup_a_guy(escape(player))
 
 if __name__ == '__app__':
     app.run(debug=True)

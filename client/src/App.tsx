@@ -3,33 +3,36 @@ import './App.css'
 
 interface PositionInterface {
   "moon": string;
-  "sun": string
+  "sun": string;
 }
 
 interface PlayerInterface {
-  [index: string]: {
-    "birthday_position": PositionInterface,
-  }
+  "player_name": string;
+  "birthday_position": PositionInterface;
+  "debut_position": PositionInterface;
 }
 
 interface HoroscopeInterface {
   current_position: PositionInterface;
-  [index: string]: PlayerInterface | PositionInterface;
+  players: PlayerInterface[]
 }
 
 function App() {
   const [moon, setMoon] = useState('');
   const [sun, setSun] = useState('');
+  const [player, setPlayer] = useState('');
   const [query, setQuery] = useState<string>('');
 
   const fetchAGuy = (search: string) => {
     return fetch(`http://localhost:5000/${search}`)
     .then((response) => response.json())
-    .then((json: [HoroscopeInterface]) => {
-      const { moon, sun } = json[0].current_position
+    .then((json: HoroscopeInterface) => {
+      const { moon, sun } = json.current_position
+      const { player_name } = json.players[0]
 
       setMoon(moon);
       setSun(sun);
+      setPlayer(player_name);
     })
   }
 
@@ -62,6 +65,7 @@ function App() {
       <button type="submit">Search</button>
     </form>
 
+      <p>Player Name: {player}</p>
       <p>Current Sun Position: {sun}</p> 
       <p>Current Moon Position: {moon}</p>
     </>
