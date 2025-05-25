@@ -1,7 +1,9 @@
 from flask import Flask
+from flask_cors import CORS
 import baseball
 
 app = Flask(__name__)
+CORS(app, origins='*')
 
 @app.route("/")
 def hello_world():
