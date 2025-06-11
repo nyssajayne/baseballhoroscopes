@@ -1,0 +1,1 @@
+FLASK_APP=baseball_horoscopes.py

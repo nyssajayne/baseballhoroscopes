@@ -11,6 +11,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --oxfordBlue: #000A2D;
+  --wheat: #EFD6AC;
+  --dogwoodRose: #D90368;
+  --vividSkyBlue: #56CBF9;
+  --kellyGreen: #29BF12;
 }
 
 a {
@@ -28,11 +34,28 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background-color: var(--oxfordBlue);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: 'Merriweather', serif;
+
+  color: var(--oxfordBlue);
+  -webkit-text-stroke: 1px var(--wheat);
+  -webkit-text-fill-color: var(--oxfordBlue);
+  text-shadow: -1px -1px 1px var(--oxfordBlue), 
+    1px -1px 1px var(--oxfordBlue), 
+    -1px 1px 1px var(--oxfordBlue), 
+    1px 1px 1px var(--oxfordBlue), 
+    -1px -1px 0.05em var(--wheat), 
+    1px -1px 0.05em var(--wheat), 
+    -1px 1px 0.05em var(--wheat), 
+    1px 1px 0.05em var(--wheat);
+  font-size: 7.8em;
+  line-height: 0.6;
 }
 
 button {

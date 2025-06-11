@@ -3,8 +3,8 @@ import statsapi
 import pandas as pd
 import pprint
 
-import astrology as astro
-import stats as stats
+from app import astrology as astro
+from app import stats as stats
 # import sys
 
 # def calculate_scoring_play_signs():

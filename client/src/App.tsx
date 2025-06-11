@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 interface PositionInterface {
@@ -22,6 +22,23 @@ function App() {
   const [sun, setSun] = useState('');
   const [player, setPlayer] = useState('');
   const [query, setQuery] = useState<string>('');
+
+  const setRandomNumber = () => {
+    try {
+      window.CSS.registerProperty({
+        name: "--random-number",
+        syntax: "<number>",
+        inherits: false,
+        initialValue: Math.random().toString()
+      });
+    } catch(e) {
+      console.log(e)
+    }
+  }
+
+  useEffect(() => {
+    setRandomNumber();
+  }, []);
 
   const fetchAGuy = (search: string) => {
     return fetch(`http://localhost:5000/${search}`)
@@ -55,6 +72,7 @@ function App() {
 
   return (
     <>
+      <h1>Baseball Horoscopes</h1>
       <form onSubmit={handleSubmit}>
       <input
         type="text"
