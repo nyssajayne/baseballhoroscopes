@@ -73,19 +73,7 @@ function App() {
   return (
     <>
       <h1>Baseball Horoscopes</h1>
-      <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={query}
-        onChange={handleInputChange}
-        placeholder="Search..."
-      />
-      <button type="submit">Search</button>
-    </form>
-
-      <p>Player Name: {player}</p>
-      <p>Current Sun Position: {sun}</p> 
-      <p>Current Moon Position: {moon}</p>
+      <h2>Reading Signs Soon</h2>
     </>
   )
 }

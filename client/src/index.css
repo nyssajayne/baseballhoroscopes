@@ -54,8 +54,25 @@ h1 {
     1px -1px 0.05em var(--wheat), 
     -1px 1px 0.05em var(--wheat), 
     1px 1px 0.05em var(--wheat);
-  font-size: 7.8em;
+  font-size: clamp(3.2rem, 16cqw, 10rem);
   line-height: 0.6;
+}
+
+h2 {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: .7rem;
+  color: var(--wheat);
+  text-shadow: -1px -1px 1px var(--oxfordBlue), 
+    1px -1px 1px var(--oxfordBlue), 
+    -1px 1px 1px var(--oxfordBlue), 
+    1px 1px 1px var(--oxfordBlue), 
+    -1px -1px 1.5em var(--wheat), 
+    1px -1px 1.5em var(--wheat), 
+    -1px 1px 1.5em var(--wheat), 
+    1px 1px 1.5em var(--wheat);
+  font-size: clamp(1rem, 3cqw, 3rem);
 }
 
 button {
