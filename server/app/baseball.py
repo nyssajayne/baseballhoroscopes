@@ -95,9 +95,9 @@ def columns_to_dict(data):
     # Assuming `data` is a DataFrame or a list of lists
     first_column = data.iloc[:, 0]  # First column (keys)
     second_column = data.iloc[:, 1]  # Second column (values)
-    
-    # Create a dictionary from the two columns
-    return dict(zip(first_column, second_column))
+
+    # Create a list of dictionaries from the two columns
+    return [{ "position": first, "value": second } for first, second in zip(first_column, second_column)]
 
 
 def calc_hitting(splits):
@@ -158,8 +158,6 @@ def lookup_a_guy(a_guy):
         'current_position': astro.sun_moon_by_zulu(zulu_time),
         'players': []
     }
-
-    pprint.pprint(the_guys)
     
     for player in players:
         stats = statsapi.get('people', { 'personIds': player['id'], 'hydrate': 'stats(group=[hitting,pitching],type=[gameLog],startDate=06/23/2021,endDate=05/18/2025)' })

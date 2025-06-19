@@ -1,17 +1,12 @@
 import './App.css'
-
-
-
-
+import RadarChart from './components/RadarChart';
 
 function App() {
  
 
   return (
     <> 
-      <h1>Baseball Horoscopes</h1>
-      <h2>Reading Signs Soon</h2>
-
+      <RadarChart />
     </>
   )
 }
