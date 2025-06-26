@@ -96,9 +96,9 @@ def columns_to_dict(data):
     first_column = data.iloc[:, 0]  # First column (keys)
     second_column = data.iloc[:, 1]  # Second column (values)
 
-    # Create a list of dictionaries from the two columns
+    # Create a dictionary from the two columns
+    # return dict(zip(first_column, second_column))
     return [{ "position": first, "value": second } for first, second in zip(first_column, second_column)]
-
 
 def calc_hitting(splits):
     try:
@@ -167,7 +167,8 @@ def lookup_a_guy(a_guy):
         the_guy = {
             'player_name': stats['people'][0]['firstLastName'],
             'debut_position': astro.sun_moon_by_date(stats['people'][0]['mlbDebutDate']),
-            'birthday_position': astro.sun_moon_by_date(stats['people'][0]['birthDate'])
+            'birthday_position': astro.sun_moon_by_date(stats['people'][0]['birthDate']),
+            'stats': []
         };
 
         for i in player_stats:
@@ -175,9 +176,9 @@ def lookup_a_guy(a_guy):
             splits = i['splits'];
 
             if(display_name == 'pitching'):
-                the_guy['pitching'] = calc_pitcher(splits)
+                the_guy['stats'].append({ 'type': 'pitching', 'value': calc_pitcher(splits) })
             if(display_name == 'hitting'):
-                the_guy['hitting'] = calc_hitting(splits)
+                the_guy['stats'].append({ 'type': 'hitting', 'value': calc_hitting(splits) })
 
         the_guys['players'].append(the_guy)
 
