@@ -8,6 +8,10 @@ const zodiacSigns = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
 const Stars = (props: { stats: HouseValue[], radius: number, color: string }) => {
     const { stats, radius, color } = props;
 
+    //TO-PONDER: don't forget that if you're showing two players,
+    //this [_, max] const needs to take the highest value available across the two players
+    //eg lindor's OPS is .96, alonso's is .93, max should return .96
+    //atm it only takes into account one group of values 
     const [_, max] = d3.extent(Object.values(stats), s => s.value) as [number, number];
     const radiusScale = d3.scaleLinear()
     .domain([0, max])

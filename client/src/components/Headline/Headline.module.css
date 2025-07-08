@@ -1,9 +1,11 @@
 .headline {
-  font-size: 3.2em;
-  line-height: 1.1;
-  font-family: 'Merriweather', serif;
-
   color: var(--oxfordBlue);
+  font-family: 'Merriweather', serif;
+  font-size: 3.2rem;
+  font-size: clamp(3.2rem, 16cqw, 10rem);
+  line-height: 0.6;
+  padding: .4em;
+  text-align: center;
   -webkit-text-stroke: 1px var(--wheat);
   -webkit-text-fill-color: var(--oxfordBlue);
   text-shadow: -1px -1px 1px var(--oxfordBlue), 
@@ -14,6 +16,10 @@
     1px -1px 0.05em var(--wheat), 
     -1px 1px 0.05em var(--wheat), 
     1px 1px 0.05em var(--wheat);
-  font-size: clamp(3.2rem, 16cqw, 10rem);
-  line-height: 0.6;
+  transition: font-size 1s ease-out;
+  width: 10ch;
+}
+
+.headline.shrunk {
+  font-size: 3.2rem;
 }

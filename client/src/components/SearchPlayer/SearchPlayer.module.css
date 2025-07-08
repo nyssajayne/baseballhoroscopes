@@ -1,0 +1,42 @@
+.form {
+    display: flex;
+    gap: .5em;
+}
+
+.input {
+    background-color: transparent;
+    border: 1px solid var(--wheat);
+    color: var(--wheat);
+    font-size: 1em;
+    font-weight: 400;
+    padding: 1em;
+}
+
+.input:focus-visible {
+    border-color: var(--vividSkyBlue);
+    box-shadow: 0 0 0 3px var(--oxfordBlue) inset, 
+        4px 4px 6px 0 var(--vividSkyBlue) inset,
+        -4px -4px 6px 0 var(--vividSkyBlue) inset;
+    color: var(--vividSkyBlue);
+    outline: none;
+}
+
+
+.button {
+    background-color: transparent;
+    border: 1px solid var(--wheat);
+    color: var(--wheat);
+    cursor: pointer;
+    font-size: 1em;
+    padding: 1em;
+}
+
+.button:hover,
+.button:focus-visible {
+    border-color: var(--vividSkyBlue);
+    box-shadow: 0 0 0 3px var(--oxfordBlue) inset, 
+        4px 4px 6px 0 var(--vividSkyBlue) inset,
+        -4px -4px 6px 0 var(--vividSkyBlue) inset;
+    color: var(--vividSkyBlue);
+    outline: 0;
+}

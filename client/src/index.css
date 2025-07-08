@@ -1,22 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  line-height: 0;
+  margin: 0;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  interpolate-size: allow-keywords;
 
   --oxfordBlue: #000A2D;
   --wheat: #EFD6AC;
   --dogwoodRose: #D90368;
   --vividSkyBlue: #56CBF9;
   --kellyGreen: #29BF12;
+}
+
+body {
+  background-color: var(--oxfordBlue);
+  color: var(--wheat);
+  display: flex;
+  font-family: "Lato", serif;
+  font-weight: 200;
+  justify-content: center;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+input::placeholder {
+  color: inherit;
+  opaicty: 1;
+}
+
+p, h1, h2, h3, h4, h5, h6, button {
+  font-weight: normal;
+  line-height: calc(1em + 0.5rem);
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
 }
 
 a {
@@ -26,36 +75,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-
-  background-color: var(--oxfordBlue);
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  font-family: 'Merriweather', serif;
-
-  color: var(--oxfordBlue);
-  -webkit-text-stroke: 1px var(--wheat);
-  -webkit-text-fill-color: var(--oxfordBlue);
-  text-shadow: -1px -1px 1px var(--oxfordBlue), 
-    1px -1px 1px var(--oxfordBlue), 
-    -1px 1px 1px var(--oxfordBlue), 
-    1px 1px 1px var(--oxfordBlue), 
-    -1px -1px 0.05em var(--wheat), 
-    1px -1px 0.05em var(--wheat), 
-    -1px 1px 0.05em var(--wheat), 
-    1px 1px 0.05em var(--wheat);
-  font-size: clamp(3.2rem, 16cqw, 10rem);
-  line-height: 0.6;
 }
 
 h2 {
@@ -73,25 +92,6 @@ h2 {
     -1px 1px 1.5em var(--wheat), 
     1px 1px 1.5em var(--wheat);
   font-size: clamp(1rem, 3cqw, 3rem);
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
