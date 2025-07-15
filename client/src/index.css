@@ -22,6 +22,10 @@
   --dogwoodRose: #D90368;
   --vividSkyBlue: #56CBF9;
   --kellyGreen: #29BF12;
+
+  --serif: "Merriweather", serif;
+  --sans-serif: "Lato", sans-serif;
+
 }
 
 body {

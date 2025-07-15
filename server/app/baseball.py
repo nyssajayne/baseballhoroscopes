@@ -82,12 +82,21 @@ def calc_pitcher(splits):
             ('moon', era_df.groupby('moon_zodiac'))
         ]
 
+        stats = [
+            ('era', calc_group_era),
+        ]
+
         chart = {
-            group_key: group_df.apply(calc_group_era, include_groups=False).reset_index(name='ERA')
+            group_key: {
+                stats_key: columns_to_dict(
+                    group_df.apply(stats_func, include_groups=False).reset_index(name=stats_key)
+                )
+                for stats_key, stats_func in stats
+            }
             for group_key, group_df in zodiac
         }
 
-        return {key: columns_to_dict(group) for key, group in chart.items()}
+        return chart
     except KeyError as e:
         print(f"KeyError: {e}")
 
@@ -125,10 +134,10 @@ def calc_hitting(splits):
         ]
 
         stats = [
-            ('batting avg.', calc_group_batting_avg),
-            ('OBP', calc_group_obp),
-            ('Slugging', calc_group_slg),
-            ('OPS', calc_group_ops)
+            ('battingAvg', calc_group_batting_avg),
+            ('obp', calc_group_obp),
+            ('slugging', calc_group_slg),
+            ('ops', calc_group_ops)
         ]
 
         chart = {
@@ -168,7 +177,7 @@ def lookup_a_guy(a_guy):
             'player_name': stats['people'][0]['firstLastName'],
             'debut_position': astro.sun_moon_by_date(stats['people'][0]['mlbDebutDate']),
             'birthday_position': astro.sun_moon_by_date(stats['people'][0]['birthDate']),
-            'stats': []
+            'stats': {}
         };
 
         for i in player_stats:
@@ -176,9 +185,9 @@ def lookup_a_guy(a_guy):
             splits = i['splits'];
 
             if(display_name == 'pitching'):
-                the_guy['stats'].append({ 'type': 'pitching', 'value': calc_pitcher(splits) })
+                the_guy['stats']['pitching'] = calc_pitcher(splits)
             if(display_name == 'hitting'):
-                the_guy['stats'].append({ 'type': 'hitting', 'value': calc_hitting(splits) })
+                the_guy['stats']['hitting'] = calc_hitting(splits)
 
         the_guys['players'].append(the_guy)
 

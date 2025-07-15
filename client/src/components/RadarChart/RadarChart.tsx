@@ -1,10 +1,14 @@
-import type { JSX } from "react";
 import * as d3 from 'd3';
 
-import labels from './Labels/Labels';
+// import labels from './Labels/Labels';
+import Stars from "../Stars/Stars";
+import type { HouseValue } from "../../globals/global.types";
 
-const RadarChart = (props: {size: number, children: JSX.Element }) => {
-    const { children, size } = props;
+const RadarChart = (props: {
+    size: number, 
+    player1: HouseValue[] | null,
+    player2: HouseValue[] | null }) => {
+    const { size, player1, player2 } = props;
     const radius = size * .5;
 
     return (
@@ -25,13 +29,14 @@ const RadarChart = (props: {size: number, children: JSX.Element }) => {
                                     y2={(size / 2) * Math.sin((angle * Math.PI) / 180)}
                                     stroke="#fff"
                                 />
-                                {labels[i]}
+                                {/*{labels[i]}*/}
                             </g>
                         )
                     })}
                 </g>
                 <g className="stars">
-                     {children}
+                    {player1 && <Stars stats={player1} radius={radius} color="yellow" />}
+                    {player2 && <Stars stats={player2} radius={radius} color="pink" />}
                  </g>
             </g>
         </svg>

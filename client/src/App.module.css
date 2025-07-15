@@ -9,3 +9,7 @@
 .data {
     justify-content: flex-start;
 }
+
+.error {
+    color: var(--dogwoodRose);
+}

@@ -1,0 +1,30 @@
+.button {
+    background-color: transparent;
+    border: none;
+    color: var(--vividSkyBlue);
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 1em;
+    text-shadow: -1px -1px 1px var(--oxfordBlue), 
+    .1px -1px 1px var(--oxfordBlue), 
+    -1px 1px 1px var(--oxfordBlue), 
+    1px 1px 1px var(--oxfordBlue), 
+    1px 1px 0.25em var(--vividSkyBlue), 
+    .1px -1px 0.25em var(--vividSkyBlue), 
+    -1px 1px 0.25em var(--vividSkyBlue), 
+    1px 1px 0.25em var(--vividSkyBlue);
+}
+
+.button:hover {
+    color: transparent;
+    cursor: pointer;
+    text-shadow: -1px -1px 1px var(--oxfordBlue), 
+    .1px -1px 1px var(--oxfordBlue), 
+    -1px 1px 1px var(--oxfordBlue), 
+    1px 1px 1px var(--oxfordBlue), 
+    1px 1px 0.5em var(--wheat), 
+    .1px -1px 0.5em var(--wheat), 
+    -1px 1px 0.5em var(--wheat), 
+    1px 1px 0.5em var(--wheat);
+}
